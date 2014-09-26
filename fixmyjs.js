@@ -6,7 +6,7 @@ stdin(function (data) {
 	var opts = JSON.parse(process.argv[2]);
 
 	try {
-		var js = fixmyjs(opts).process(data, {safe: true}).css;
+		var js = fixmyjs.fix(data, opts);
 		process.stdout.write(js);
 	} catch (err) {
 		if (/Unclosed block/.test(err.message)) {

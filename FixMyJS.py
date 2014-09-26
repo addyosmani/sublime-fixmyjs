@@ -15,7 +15,7 @@ sublime.Region.__iter__ = lambda self: self.totuple().__iter__()
 
 BIN_PATH = join(sublime.packages_path(), dirname(realpath(__file__)), 'fixmyjs.js')
 
-class FixMyJSCommand(sublime_plugin.TextCommand):
+class FixCommand(sublime_plugin.TextCommand):
 	def run(self, edit):
 		if not self.has_selection():
 			region = sublime.Region(0, self.view.size())

@@ -1,6 +1,6 @@
 // Array literal test
-var a = Array();
-var ab = [];
+var a = Array()
+var ab = []
 
 // Array constructions
 var b = new Array();

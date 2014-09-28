@@ -10,6 +10,13 @@ You shouldn't have to care about linting issues. Now you don't have to using [fi
 
 ## Install
 
+### Package Control
+
+Install `FixMyJS` with [Package Control](https://sublime.wbond.net) and restart Sublime.
+
+**You need to have [Node.js](http://nodejs.org) installed.**  
+Make sure it's in your $PATH by running `node -v` in your command-line.
+
 ### Install from GitHub
 
 1) Open the Command Palette *(Cmd+Shift+P)*
@@ -24,12 +31,6 @@ You shouldn't have to care about linting issues. Now you don't have to using [fi
 
 4) BOOM.
 
-### Package Control (coming soon)
-
-Install `FixMyJS` with [Package Control](https://sublime.wbond.net) and restart Sublime.
-
-**You need to have [Node.js](http://nodejs.org) installed.**  
-Make sure it's in your $PATH by running `node -v` in your command-line.
 
 ## Getting started
 

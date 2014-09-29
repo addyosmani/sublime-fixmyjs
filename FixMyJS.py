@@ -34,7 +34,9 @@ class FixCommand(sublime_plugin.TextCommand):
 
 	def fix(self, data):
 		try:
-			return node_bridge(data, BIN_PATH, [json.dumps({})])
+			return node_bridge(data, BIN_PATH, [json.dumps({
+				'legacy': self.get_setting('legacy'),
+			})])
 		except Exception as e:
 			sublime.error_message('FixMyJS\n%s' % e)
 

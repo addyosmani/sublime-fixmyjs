@@ -42,6 +42,21 @@ In a js file, open the Command Palette *(Cmd+Shift+P)* and choose `FixMyJS`. You
 
 *(Preferences > Package Settings > FixMyJS > Settings - User)*
 
+### Legacy mode
+
+By default, this plugin uses the FixMyJS *legacy* mode. This option uses the last stable version
+of the module which uses JSHint to detect errors in your code and fix them.
+
+It does not include all of the fixes the current version of FixMyJS exposes, but does do a much better
+job of preserving source formatting. To disable legacy mode, set `legacy` to false in your user
+settings for the package.
+
+```json
+{
+		"legacy": false
+}
+```
+
 ### Keyboard shortcut
 
 You can also set up a keyboard shortcut to run the command by opening up "Preferences > Key Bindings - User" and adding your shortcut with the `fixmyjs` command.

@@ -6,7 +6,7 @@ You shouldn't have to care about linting issues. Now you don't have to using [fi
 
 ## Preview
 
-![](http://i.imgur.com/1NKUiu4.gif)
+![](http://i.imgur.com/mQBPYGA.gif)
 
 ## Install
 

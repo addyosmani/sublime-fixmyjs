@@ -6,17 +6,16 @@ var jshintCli = require('jshint/src/cli');
 
 stdin(function (data) {
 	var opts = JSON.parse(process.argv[2]);
-	var file = process.argv[3];
-	var config = jshintCli.getConfig(file) || {};
-	
-	if (config.legacy === undefined) {
-		config.legacy = opts.legacy;
+	var config = {};
+
+	if (opts.filepath) {
+		config = jshintCli.getConfig(opts.filepath) || config;
 	}
 
 	try {
 
 		var js;
-		if (config.legacy) {
+		if (opts.legacy) {
 			jshint(data, config);
 			js = fixmyjs(jshint.data(), data).run();
 		} else {

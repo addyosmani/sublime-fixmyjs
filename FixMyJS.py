@@ -36,7 +36,8 @@ class FixCommand(sublime_plugin.TextCommand):
 		try:
 			return node_bridge(data, BIN_PATH, [json.dumps({
 				'legacy': self.get_setting('legacy'),
-			}), self.view.file_name()])
+				'filepath': self.view.file_name()
+			})])
 		except Exception as e:
 			sublime.error_message('FixMyJS\n%s' % e)
 

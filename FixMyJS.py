@@ -20,7 +20,7 @@ class FixCommand(sublime_plugin.TextCommand):
 		if not self.has_selection():
 			region = sublime.Region(0, self.view.size())
 			originalBuffer = self.view.substr(region)
-			fixed = self.fix(originalBuffer, self.view.file_name())
+			fixed = self.fix(originalBuffer)
 			if fixed:
 				self.view.replace(edit, region, fixed)
 			return
@@ -28,15 +28,15 @@ class FixCommand(sublime_plugin.TextCommand):
 			if region.empty():
 				continue
 			originalBuffer = self.view.substr(region)
-			fixed = self.fix(originalBuffer, self.view.file_name())
+			fixed = self.fix(originalBuffer)
 			if fixed:
 				self.view.replace(edit, region, fixed)
 
-	def fix(self, data, fileuri):
+	def fix(self, data):
 		try:
 			return node_bridge(data, BIN_PATH, [json.dumps({
 				'legacy': self.get_setting('legacy'),
-			}), fileuri])
+			}), self.view.file_name()])
 		except Exception as e:
 			sublime.error_message('FixMyJS\n%s' % e)
 
@@ -50,6 +50,5 @@ class FixCommand(sublime_plugin.TextCommand):
 	def get_setting(self, key):
 		settings = self.view.settings().get('FixMyJS')
 		if settings is None:
-			print('loading settings for key ', key);
 			settings = sublime.load_settings('FixMyJS.sublime-settings')
 		return settings.get(key)

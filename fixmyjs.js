@@ -6,11 +6,7 @@ var jshintCli = require('jshint/src/cli');
 
 stdin(function (data) {
 	var opts = JSON.parse(process.argv[2]);
-	var config = {};
-
-	if (opts.filepath) {
-		config = jshintCli.getConfig(opts.filepath) || config;
-	}
+	var config = opts.filepath && jshintCli.getConfig(opts.filepath) || {};
 
 	try {
 

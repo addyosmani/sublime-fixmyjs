@@ -60,13 +60,13 @@ settings for the package.
 
 ### Keyboard shortcut
 
-You can also set up a keyboard shortcut to run the command by opening up "Preferences > Key Bindings - User" and adding your shortcut with the `fixmyjs` command.
+You can also set up a keyboard shortcut to run the command by opening up "Preferences > Key Bindings - User" and adding your shortcut with the `fix` command.
 
 Example:
 
 ```json
 [
-	{ "keys": ["alt+super+j"], "command": "fixmyjs" }
+	{ "keys": ["alt+super+j"], "command": "fix" }
 ]
 ```
 

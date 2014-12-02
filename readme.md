@@ -17,6 +17,9 @@ Install `FixMyJS` with [Package Control](https://sublime.wbond.net) and restart 
 **You need to have [Node.js](http://nodejs.org) installed.**  
 Make sure it's in your $PATH by running `node -v` in your command-line.
 
+> Note: On OS X it's expected that Node resides in the /usr/local/bin/ folder, which it does when installed with the default installer. If this is not the case, symlink your Node binary to this location:  
+`ln -s /full/path/to/your/node /usr/local/bin/node`
+
 ### Install from GitHub
 
 1) Open the Command Palette *(Cmd+Shift+P)*

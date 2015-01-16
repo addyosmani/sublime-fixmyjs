@@ -2,7 +2,7 @@
   "name": "sublime-fixmyjs",
   "version": "0.3.2",
   "dependencies": {
-    "fixmyjs": "^0.13.6",
+    "fixmyjs": "^1.0.2",
     "get-stdin": "^3.0.0",
     "jshint": "^2.5.6"
   },

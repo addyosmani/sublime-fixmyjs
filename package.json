@@ -1,6 +1,6 @@
 {
   "name": "sublime-fixmyjs",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "dependencies": {
     "fixmyjs": "^1.0.2",
     "get-stdin": "^4.0.1",

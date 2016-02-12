@@ -46,6 +46,16 @@ In a js file, open the Command Palette *(Cmd+Shift+P)* and choose `FixMyJS`. You
 
 *(Preferences > Package Settings > FixMyJS > Settings - User)*
 
+#### Default
+
+```json
+{
+		"legacy": true,
+		"fixOnSave": false
+}
+```
+
+
 ### Legacy mode
 
 By default, this plugin uses the FixMyJS *legacy* mode. This option uses the last stable version

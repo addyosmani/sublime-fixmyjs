@@ -1,7 +1,7 @@
 import sublime
 import sublime_plugin
 import json
-from os.path import dirname, realpath, join
+from os.path import dirname, realpath, join, splitext, basename
 
 try:
 	# Python 2
@@ -14,6 +14,15 @@ sublime.Region.totuple = lambda self: (self.a, self.b)
 sublime.Region.__iter__ = lambda self: self.totuple().__iter__()
 
 BIN_PATH = join(sublime.packages_path(), dirname(realpath(__file__)), 'fixmyjs.js')
+
+def get_setting(view, key):
+	settings = view.settings().get('FixMyJS')
+	if settings is None:
+		settings = sublime.load_settings('FixMyJS.sublime-settings')
+	return settings.get(key)
+
+def is_javascript(view):
+	return splitext(basename(view.settings().get('syntax')))[0] in ('JavaScript', 'JavaScript (Babel)')
 
 class FixCommand(sublime_plugin.TextCommand):
 	def run(self, edit):
@@ -35,7 +44,7 @@ class FixCommand(sublime_plugin.TextCommand):
 	def fix(self, data):
 		try:
 			return node_bridge(data, BIN_PATH, [json.dumps({
-				'legacy': self.get_setting('legacy'),
+				'legacy': get_setting(self.view, 'legacy'),
 				'filepath': self.view.file_name()
 			})])
 		except Exception as e:
@@ -48,8 +57,7 @@ class FixCommand(sublime_plugin.TextCommand):
 				return True
 		return False
 
-	def get_setting(self, key):
-		settings = self.view.settings().get('FixMyJS')
-		if settings is None:
-			settings = sublime.load_settings('FixMyJS.sublime-settings')
-		return settings.get(key)
+class FixPreSaveCommand(sublime_plugin.EventListener):
+	def on_pre_save(self, view):
+		if get_setting(view, 'fixOnSave') is True and is_javascript(view):
+				view.run_command('fix')

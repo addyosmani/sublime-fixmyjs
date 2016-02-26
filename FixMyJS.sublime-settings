@@ -1,3 +1,4 @@
 {
-    "legacy": true
+    "legacy": true,
+    "fixOnSave": false
 }
